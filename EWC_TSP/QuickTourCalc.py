@@ -6,7 +6,7 @@ import networkx as nx
 #helper get a jsons of a route
 def getLeg(dists,coords,fold,s,d):
     rte=''
-    with open(r'C:\Users\jdeur\OneDrive\Documents\TSP_Projs\EWC_TSP\\'+fold+'\\'+str(s)+'to'+str(d)+'.txt','w') as edfl:
+    with open(r'C:\Users\jdeur\OneDrive\Documents\TSP_Projs\EWC_TSP\\'+fold+'\\\\'+str(s)+'to'+str(d)+'.txt','w') as edfl:
         rte=requests.get('http://router.project-osrm.org/route/v1/driving/'+townL[s][2]+','+townL[s][3]+';'+townL[d][2]+','+townL[d][3]+'?overview=simplified&geometries=geojson')
         rte=rte.json()
         rte=str(rte["routes"][0]["geometry"])
@@ -56,6 +56,11 @@ try22=[61,62,0,63,1,2,3,4,6,5,7,8,9,10,37,11,12,13,14,15,16,17,19,18,21,22,24,23
        ,25,26,27,28,29,30,31,32,33,34,35,36,20,38,39,66,40,41,42,43,44,45,46,47,
        48,49,50,51,52,53,55,54,65,56,57,59,60
        ]
+try24=[61,62,0,63,1,2,3,4,6,5,7,8,9,10,37,11,20,36,35,34,33,32,31,30,29,28,27,26,
+       25,23,24,22,21,18,19,17,16,15,14,13,12,38,39,66,40,41,42,43,44,45,46,47,
+       48,49,50,51,52,53,55,54,65,56,57,59,60
+       ]
+
 req=requests.get('http://router.project-osrm.org/table/v1/driving/'+coords)
 if(str(req)=="<Response [200]>"):
     #get the dist
@@ -66,5 +71,6 @@ else:
 
 orgl=[i for i in range(len(townL))]
 #getTourL(orgl,"deflt")
-getTourL(ftry,"first_try")
+#getTourL(ftry,"first_try")
 #getTourL(try22,"Attempt2022")
+getTourL(try24, "Attempt2024")

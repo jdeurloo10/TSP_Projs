@@ -3,7 +3,7 @@ import glob
 import processing
 
 # Set the directory containing the geojson files
-dir_path = r"C:\Users\jdeur\OneDrive\Documents\TSP_Projs\EWC_TSP\MST_Cut"
+dir_path = r"C:\Users\jdeur\OneDrive\Documents\TSP_Projs\EWC_TSP\Attempt2024"
 
 # Get a list of all geojson files in the directory
 geojson_files = glob.glob(os.path.join(dir_path, "*to*"))
